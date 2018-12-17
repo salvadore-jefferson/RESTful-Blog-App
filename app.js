@@ -11,7 +11,8 @@ app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
 app.use(sanitizer());
 
-mongoose.connect("mongodb://salvadore:Mysonismax_420!@ds139954.mlab.com:39954/restfulblog", { useNewUrlParser: true });
+
+mongoose.connect(process.env.DATABASEURL, { useNewUrlParser: true });
 
 var blogSchema = new mongoose.Schema({
     title: String,
