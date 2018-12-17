@@ -11,8 +11,8 @@ app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
 app.use(sanitizer());
 
-
-mongoose.connect(process.env.DATABASEURL, { useNewUrlParser: true });
+var url = process.env.DATABASEURL || "mongodb://localhost:27017/blog_app";
+mongoose.connect(url, { useNewUrlParser: true });
 
 var blogSchema = new mongoose.Schema({
     title: String,
