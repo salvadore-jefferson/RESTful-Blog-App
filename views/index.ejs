@@ -1,0 +1,27 @@
+<% include partials/header %>
+<div class="jumbotron" style="margin-top:20px;">
+    <h1>A RESTful Blog App</h1>
+    <p class="lead">Compleate with <em>CRUD</em> Operations</p>
+    <small class="text-muted">Built from the ground up using Node.js, Express, Mongoose and Bootstrap 4</small>
+</div>
+<div class="row">
+<% blog.forEach(function(blog){ %>
+    <div class="col-md-9">
+        <div>
+            <h3> <%= blog.title %></h3>
+            <p>
+                <small class="text-muted">
+                    <%= blog.created.toDateString() %>
+                </small>
+            </p>
+            <img class="img-thumbnail" src="<%= blog.image %>">
+            <p>
+                <%- blog.body %>
+            </p>
+        <a class="btn btn-sm btn-info pull-right" href="/blog/<%= blog._id %>">Read More</a>
+        </div>
+        <hr>
+    </div>
+    <% }); %>
+</div>
+<% include partials/footer %>

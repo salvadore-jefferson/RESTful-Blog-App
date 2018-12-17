@@ -1,0 +1,23 @@
+<% include partials/header %>
+<div class="row">
+    <div class="col-md-9">
+        <div>
+            <h3> <%= blog.title %></h3>
+            <p>
+                <small class="text-muted">
+                    <%= blog.created.toDateString() %>
+                </small>
+            </p>
+            <img class="img-thumbnail" src="<%= blog.image %>">
+            <p>
+                <%- blog.body %>
+            </p>
+        <a class="btn btn-sm btn-info pull-right" href="/blog/<%= blog._id %>/edit">Edit</a>
+        <form style= "display:inline;" action="/blog/<%= blog._id %>?_method=DELETE" method="POST">
+            <button class="btn btn-sm btn-danger">Delete</button>
+        </form>
+        </div>
+        <hr>
+    </div>
+</div>
+<% include partials/footer %>
